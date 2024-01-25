@@ -12,6 +12,7 @@ func formatStatus(code int) string {
 	return strings.ToLower(status)
 }
 
+// Default rest error type.
 type Err struct {
 	Message string  `json:"message"`
 	Code    int     `json:"code"`
@@ -19,15 +20,18 @@ type Err struct {
 	Causes  []Cause `json:"causes,omitempty"`
 }
 
+// Describes the cause of the error occurrence.
 type Cause struct {
 	Field   string `json:"field"`
 	Message string `json:"message"`
 }
 
+// Returns error message on string format.
 func (r *Err) Error() string {
 	return r.Message
 }
 
+// Creates a new rest.Err.
 func NewRestErr(message, err string, code int, causes []Cause) *Err {
 	return &Err{
 		Message: message,
@@ -37,6 +41,7 @@ func NewRestErr(message, err string, code int, causes []Cause) *Err {
 	}
 }
 
+// Creates a new Bad Request Error.
 func NewBadRequestErr(message string, causes []Cause) *Err {
 	return &Err{
 		Message: message,
@@ -46,6 +51,7 @@ func NewBadRequestErr(message string, causes []Cause) *Err {
 	}
 }
 
+// Creates a new Internal Server Error.
 func NewInternalServerErr(message string) *Err {
 	return &Err{
 		Message: message,
@@ -55,6 +61,7 @@ func NewInternalServerErr(message string) *Err {
 	}
 }
 
+// Creates a new Not Found Error.
 func NewNotFoundErr(message string) *Err {
 	return &Err{
 		Message: message,
@@ -64,6 +71,7 @@ func NewNotFoundErr(message string) *Err {
 	}
 }
 
+// Creates a new Forbidden Error.
 func NewForbiddenErr(message string) *Err {
 	return &Err{
 		Message: message,
@@ -73,6 +81,7 @@ func NewForbiddenErr(message string) *Err {
 	}
 }
 
+// Creates a new Unauthorized Error.
 func NewUnauthorizedErr() *Err {
 	return &Err{
 		Message: http.StatusText(http.StatusUnauthorized),

@@ -24,6 +24,8 @@ func init() {
 	en_translation.RegisterDefaultTranslations(Validate, transl)
 }
 
+// Validate one struct error.
+// Returns rest.Err with the cause of the error occurrence.
 func ValidateErr(err error) *Err {
 	var json_err *json.UnmarshalTypeError
 	var validation_err validator.ValidationErrors
@@ -48,13 +50,12 @@ func ValidateErr(err error) *Err {
 	}
 }
 
+// Validate one variable error.
+// Returns rest.Err with the cause of the error occurrence.
 func ValidateVar(name string, err error) *Err {
-	var json_err *json.UnmarshalTypeError
 	var validation_err validator.ValidationErrors
 
-	if errors.As(err, &json_err) {
-		return NewBadRequestErr("invalid field type", nil)
-	} else if errors.As(err, &validation_err) {
+	if errors.As(err, &validation_err) {
 		causes := []Cause{}
 
 		for _, e := range err.(validator.ValidationErrors) {
