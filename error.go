@@ -32,7 +32,7 @@ func (r *Err) Error() string {
 }
 
 // Creates a new rest.Err.
-func NewRestErr(message, err string, code int, causes []Cause) *Err {
+func NewErr(message, err string, code int, causes []Cause) *Err {
 	return &Err{
 		Message: message,
 		Code:    code,

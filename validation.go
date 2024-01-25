@@ -26,7 +26,7 @@ func init() {
 
 // Validate one struct error.
 // Returns rest.Err with the cause of the error occurrence.
-func ValidateErr(err error) *Err {
+func ValidateStructErr(err error) *Err {
 	var json_err *json.UnmarshalTypeError
 	var validation_err validator.ValidationErrors
 
@@ -52,7 +52,7 @@ func ValidateErr(err error) *Err {
 
 // Validate one variable error.
 // Returns rest.Err with the cause of the error occurrence.
-func ValidateVar(name string, err error) *Err {
+func ValidateVarErr(name string, err error) *Err {
 	var validation_err validator.ValidationErrors
 
 	if errors.As(err, &validation_err) {

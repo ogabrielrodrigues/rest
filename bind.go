@@ -13,7 +13,7 @@ func Bind(src io.ReadCloser, dst interface{}) *Err {
 	}
 
 	if err := Validate.Struct(dst); err != nil {
-		return ValidateErr(err)
+		return ValidateStructErr(err)
 	}
 
 	return nil
