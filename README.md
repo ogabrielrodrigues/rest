@@ -1,15 +1,13 @@
-<div align="center" style="padding: 20px 0;">
+<div align="center">
   <img src=".github/rest.svg" alt="Rest Logo" />
 </div>
-
+<br>
 <div align="center">
   <img alt="GitHub Release" src="https://img.shields.io/github/v/release/ogabrielrodrigues/rest?display_name=release">
   <img alt="GitHub License" src="https://img.shields.io/github/license/ogabrielrodrigues/rest">
 </div>
 
-<hr>
-
-<h3 style="font-size: 28px; text-decoration:none;">Tired of having to do everything by hand every time you start a new go project with the <a href="https://github.com/go-chi/chi" target="_blank">chi</a> router?</h3>
+<h2>Tired of having to do everything by hand every time you start a new go project with the <a href="https://github.com/go-chi/chi" target="_blank">chi</a> router?</h3>
 
 <p style="font-size: 20px; text-decoration:none;">This set of pre-ready functions will help you save time and make you more productive.</p>
 <br>
@@ -39,9 +37,6 @@ func ExampleHandler(w http.ResponseWriter, r *http.Request) {
   // Rest of your handler logic...
 }
 ```
-
-<br>
-<hr>
 <br>
 <p style="font-size: 16px; text-decoration:none;">
   <code>Error handling</code> 
@@ -67,9 +62,6 @@ func ErrorHandler(w http.ResponseWriter, r *http.Request) {
   "error": "internal_server_error"
 }
 ```
-
-<br>
-<hr>
 <br>
 <p style="font-size: 16px; text-decoration:none;">
   <code>Response</code> 
@@ -114,9 +106,6 @@ func OnlyStatusHandler(w http.ResponseWriter, r *http.Request) {
 // Output in response headers:
 HTTP/1.1 200 OK
 ```
-
-<br>
-<hr>
 <br>
 <p style="font-size: 16px; text-decoration:none;">
   <code>Validation</code> 
